@@ -35,4 +35,4 @@ TASK 2: Odysseus Monitoring System - State Machine
 * There is one problem though: the light sensor by default starts at 0 which according to the logic should lead to storm state. However since in the tasklist it is written that it should start in open sea state, I have inverted the code logic so that 0 light value corresponds to open sea and above halfway point corresponds to storm. IRL perhaps we could label the 0 as max light value and vice versa.
 
 
-Lastly, I wanted to thank the seniors for these tasks. It has been a difficult but rewarding journey
+Lastly, I wanted to thank the seniors for these tasks. It has been a difficult but rewarding journey!
