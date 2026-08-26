@@ -11,7 +11,7 @@ import numpy as np
 
 
 
-# --- 1. Read and Clean Data ---
+# 1. Read and Clean Data
 """
     Reads depth data from CSV file
     Applies a median filter to drop extreme sensor spikes,
@@ -27,18 +27,6 @@ def read_and_filter_data(filepath="depth_data.csv"):
         
         df['depth']=df['depth'].ffill().bfill()  #Fill any corrupted NaN rows with adjacent valid numbers
 
-        
-    except FileNotFoundError:
-
-        #Dummy data generator for testing if csv is missing
-        time_pts = np.arange(0,60,1)
-        depth_pts = 50 + 10*np.sin(time_pts/5) + np.random.normal(0, 2, size=len(time_pts))
-        
-        depth_pts[12] = 200  #Add random erratic spikes (sensor corruption)
-        depth_pts[35] = -50
-
-
-        df = pd.DataFrame({'time': time_pts, 'depth': depth_pts})
 
     #Filter erratic values (Spike removal using Rolling Median)
     df['filtered_depth']= df['depth'].rolling(window=3, min_periods=1, center=True).median()
@@ -50,7 +38,7 @@ def read_and_filter_data(filepath="depth_data.csv"):
 
 df= read_and_filter_data()
 
-# --- 2. Real-Time Plot Setup ---
+# 2. Real-Time Plot Setup 
 
 fig, ax = plt.subplots(figsize=(10,5)) 
 fig.patch.set_facecolor("#f4f4f9")
@@ -67,7 +55,7 @@ ax.set_title("Odysseus' Vessel: Real-Time Sea Floor Depth Monitoring", fontsize=
 ax.grid(True, linestyle=':', alpha=0.6)
 ax.legend(loc='upper right')
 
-# --- 3. Animation ---
+# 3. Animation
 def animate(i):
     current_time = df['time'].iloc[:i+1]
     current_raw = df['depth'].iloc[:i+1]
@@ -77,7 +65,7 @@ def animate(i):
     clean_line.set_data(current_time, current_clean)
     return raw_line, clean_line
 
-#Simulates live data streaming by progressively slicing the dataset and updating every 1000 ms.
+# Simulates live data streaming by progressively slicing the dataset and updating every 1000 ms.
 ani = animation.FuncAnimation(
     fig, animate, frames=len(df), interval=1000, repeat=False
 )
