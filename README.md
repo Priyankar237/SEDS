@@ -6,16 +6,16 @@ ID: 2026A4PS1208H
 NOTE: Gemini and Claude have been used in these tasks. However I have tried to make sure that I understand the code and circuitry that has gone into this.
 
 
-                                                                                                    /\   
-                                                                                                   /__\  
-                                                                                                  |    | 
-                                                                                                  |    | 
-                                                                                                  |____| 
-                                                                                                  /|__|\ 
-                                                                                                   /  \  
-                                                                                                   ^^^^
-                                                                                                 ^^^^^^^^
-                                                                                               ^^^^^^^^^^^^
+                                                                                   /\   
+                                                                                  /__\  
+                                                                                 |    | 
+                                                                                 |    | 
+                                                                                 |____| 
+                                                                                 /|__|\ 
+                                                                                  /  \  
+                                                                                  ^^^^
+                                                                                ^^^^^^^^
+                                                                              ^^^^^^^^^^^^
 
 
 TASK 1: Sensor Data Visualization and Filtering
